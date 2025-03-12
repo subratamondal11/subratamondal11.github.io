@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Image Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .slider {
+            width: 80%;
+            max-width: 800px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides a {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .slides img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <a href="https://www.nationalgeographic.com/" target="_blank"><img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" alt="Forest"></a>
+            <a href="https://www.worldwildlife.org/" target="_blank"><img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg" alt="Mountain"></a>
+            <a href="https://www.nature.org/en-us/" target="_blank"><img src="https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg" alt="Waterfall"></a>
+            <a href="https://www.conservation.org/" target="_blank"><img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg" alt="Beach"></a>
+        </div>
+    </div>
+    <div class="controls">
+        <button class="btn" onclick="prevSlide()">Previous</button>
+        <button class="btn" onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slides a').length;
+
+        function updateSlide() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlide();
+        }
+    </script>
+</body>
+</html>
