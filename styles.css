@@ -13,6 +13,7 @@ header {
   color: #fff;
   padding: 20px 0;
   text-align: center;
+  position: relative;
 }
 
 header h1 {
@@ -20,8 +21,74 @@ header h1 {
   font-size: 2.5rem;
 }
 
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #555;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropbtn:hover {
+  background-color: #777;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-content form {
+  padding: 20px;
+}
+
+.dropdown-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dropdown-content button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-content button[type="submit"]:hover {
+  background-color: #777;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Main Content */
 main {
   padding: 20px;
+  margin-top: 20px; /* Add gap between header and slideshow */
   display: flex;
   justify-content: center;
   align-items: center;
